@@ -2,38 +2,38 @@ class account {
     int accountnumber;
     String accountholder;
     double balance;
-    total[] transactions;
+    amount[] transactions;
     int transactionCount;
     // new bank account
     public account(int accountnumber, String accountholder) {
         this.accountnumber = accountnumber;
         this.accountholder = accountholder;
         this.balance = 0.0; // Default balance is 0
-        this.transactions = new total[10]; // Fixed size array for transactions
+        this.transactions = new amount[10]; // Fixed size array for transactions
         this.transactionCount = 0;
     }
     // deposit money
-    public void deposit(double total) {
-        if (total > 0) {
+    public void deposit(double amount) {
+        if (amount > 0) {
             // new transaction
-            transactions[transactionCount] = new total(total, TransactionType.DEPOSIT);
+            transactions[transactionCount] = new amount(amount, TransactionType.DEPOSIT);
             transactionCount++;
-            balance += total;
-            System.out.println("Successful deposit: " + total);
+            balance += amount;
+            System.out.println("Successful deposit: " + amount);
         } else {
             System.out.println("Error!");
         }
     }
     // withdraw money
-    public void withdraw(double total) {
-        if (total > 0 && total <= balance) {
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
             // Create new transaction
-            transactions[transactionCount] = new total(total, TransactionType.WITHDRAWAL);
+            transactions[transactionCount] = new amount(amount, TransactionType.WITHDRAWAL);
             transactionCount++; // Increment the transaction count
-            balance -= total; // Update the balance
-            System.out.println("Successful withdrawal: " + total);
+            balance -= amount; // Update the balance
+            System.out.println("Successful withdrawal: " + amount);
         } else {
-            System.out.println("Error: Insufficient funds or invalid total.");
+            System.out.println("Error: Insufficient funds or invalid amount.");
         }
     }
     //history
