@@ -1,36 +1,33 @@
 class account {
-    int accountNumber; // Account number
-    String accountHolder; // Account holder's name
-    double balance; // Current balance
-    total[] transactions; // Array to store transactions
-    int transactionCount; // Counter for the number of transactions
-
-    // Constructor to create a new bank account
-    public account(int accountNumber, String accountHolder) {
-        this.accountNumber = accountNumber;
-        this.accountHolder = accountHolder;
+    int accountnumber;
+    String accountholder;
+    double balance;
+    total[] transactions;
+    int transactionCount;
+    // new bank account
+    public account(int accountnumber, String accountholder) {
+        this.accountnumber = accountnumber;
+        this.accountholder = accountholder;
         this.balance = 0.0; // Default balance is 0
         this.transactions = new total[10]; // Fixed size array for transactions
-        this.transactionCount = 0; // Initialize transaction count
+        this.transactionCount = 0;
     }
-
-    // Method to deposit money
+    // deposit money
     public void deposit(double total) {
         if (total > 0) {
-            // Create a new transaction and add it to the array
+            // new transaction
             transactions[transactionCount] = new total(total, TransactionType.DEPOSIT);
-            transactionCount++; // Increment the transaction count
-            balance += total; // Update the balance
+            transactionCount++;
+            balance += total;
             System.out.println("Successful deposit: " + total);
         } else {
-            System.out.println("Error: Deposit total must be greater than 0.");
+            System.out.println("Error!");
         }
     }
-
-    // Method to withdraw money
+    // withdraw money
     public void withdraw(double total) {
         if (total > 0 && total <= balance) {
-            // Create a new transaction and add it to the array
+            // Create new transaction
             transactions[transactionCount] = new total(total, TransactionType.WITHDRAWAL);
             transactionCount++; // Increment the transaction count
             balance -= total; // Update the balance
@@ -39,9 +36,8 @@ class account {
             System.out.println("Error: Insufficient funds or invalid total.");
         }
     }
-
-    // Method to print transaction history
-    public void printTransactionHistory() {
+    //history
+    public void History() {
         if (transactionCount == 0) {
             System.out.println("No transactions.");
         } else {
@@ -52,7 +48,7 @@ class account {
         }
     }
 
-    // Method to get the current balance
+    //balance
     public double getBalance() {
         return balance;
     }

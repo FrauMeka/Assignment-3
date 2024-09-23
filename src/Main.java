@@ -1,16 +1,14 @@
 
 public class Main {
     public static void main(String[] args) {
-        // Create a new bank account
-        account account = new account(12345, "John Doe");
+        // new bank account
+        account account = new account(230141002, "Meerim Sarbalieva");
 
-        // Deposit money and withdraw money
-        account.deposit(1000);
-        account.withdraw(500);
-        account.withdraw(600); // Attempt to withdraw more than the balance
-
-        // Print transaction history and current balance
-        account.printTransactionHistory();
+        // Deposit and withdraw
+        account.deposit(1200);
+        account.withdraw(400);
+        account.withdraw(600);
+        account.History();
         System.out.println("Current balance: " + account.getBalance());
     }
 }
